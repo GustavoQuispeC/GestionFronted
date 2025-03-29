@@ -127,13 +127,14 @@ export default function ComplexNavbar() {
   return (
     <Navbar className="mx-auto w-full max-w-screen-2xl">
       <div className="flex items-center">
+        <img src="/images/logo.png" alt="logo" className="w-12" />
         <Typography
           as="a"
           href="#"
-          type="small"
-          className="ml-2 mr-2 block py-1 font-semibold"
+          type="h6"
+          className="ml-2 mr-2 block py-1 font-semibold text-blue-600 "
         >
-          Material Tailwind
+          Grupo Famet S.A.C.
         </Typography>
         <hr className="mx-1 hidden h-5 w-px border-l border-t-0 border-secondary-dark lg:block" />
         <div className="hidden lg:block">

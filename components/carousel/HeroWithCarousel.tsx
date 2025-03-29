@@ -23,8 +23,8 @@ export default function HeroWithCarousel() {
         {images.map((image, index) => (
           <div key={index} className="relative w-full h-[500px]">
             <Image
-              src={image.src}
               alt={image.alt}
+              src={image.src}
               width={1920}
               height={500}
               objectFit="cover"
