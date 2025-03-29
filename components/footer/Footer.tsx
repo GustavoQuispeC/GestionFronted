@@ -1,4 +1,6 @@
+import Link from "next/link";
 import React from "react";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -6,19 +8,21 @@ export default function Footer() {
       <div className="max-w-screen-xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="lg:flex lg:items-center">
-            <a href="javascript:void(0)">
-              <img
-                src="https://readymadeui.com/readymadeui-light.svg"
+            <Link href="#" passHref className="flex items-center">
+              <Image
+                src="/images/logo_principal.png"
                 alt="logo"
-                className="w-48"
+                width={150}
+                height={100}
+                className="object-contain"
               />
-            </a>
+            </Link>
           </div>
 
           <div className="lg:flex lg:items-center">
             <ul className="flex space-x-6">
               <li>
-                <a href="javascript:void(0)">
+                <a href="#">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="fill-gray-300 hover:fill-white w-7 h-7"
@@ -33,7 +37,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="javascript:void(0)">
+                <a href="#">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="fill-gray-300 hover:fill-white w-7 h-7"
@@ -48,7 +52,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="javascript:void(0)">
+                <a href="#">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -66,26 +70,17 @@ export default function Footer() {
             <h4 className="text-am mb-6 text-white">Useful links</h4>
             <ul className="space-y-4 pl-2">
               <li>
-                <a
-                  href="javascript:void(0)"
-                  className="text-gray-400 hover:text-white text-sm"
-                >
+                <a href="#" className="text-gray-400 hover:text-white text-sm">
                   Featured
                 </a>
               </li>
               <li>
-                <a
-                  href="javascript:void(0)"
-                  className="text-gray-400 hover:text-white text-sm"
-                >
+                <a href="#" className="text-gray-400 hover:text-white text-sm">
                   New Arrivals
                 </a>
               </li>
               <li>
-                <a
-                  href="javascript:void(0)"
-                  className="text-gray-400 hover:text-white text-sm"
-                >
+                <a href="#" className="text-gray-400 hover:text-white text-sm">
                   New Arrivals
                 </a>
               </li>
@@ -96,42 +91,27 @@ export default function Footer() {
             <h4 className="text-am mb-6 text-white">Information</h4>
             <ul className="space-y-4 pl-2">
               <li>
-                <a
-                  href="javascript:void(0)"
-                  className="text-gray-400 hover:text-white text-sm"
-                >
+                <a href="#" className="text-gray-400 hover:text-white text-sm">
                   About Us
                 </a>
               </li>
               <li>
-                <a
-                  href="javascript:void(0)"
-                  className="text-gray-400 hover:text-white text-sm"
-                >
+                <a href="#" className="text-gray-400 hover:text-white text-sm">
                   Terms &amp; Conditions
                 </a>
               </li>
               <li>
-                <a
-                  href="javascript:void(0)"
-                  className="text-gray-400 hover:text-white text-sm"
-                >
+                <a href="#" className="text-gray-400 hover:text-white text-sm">
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a
-                  href="javascript:void(0)"
-                  className="text-gray-400 hover:text-white text-sm"
-                >
+                <a href="#" className="text-gray-400 hover:text-white text-sm">
                   Sale
                 </a>
               </li>
               <li>
-                <a
-                  href="javascript:void(0)"
-                  className="text-gray-400 hover:text-white text-sm"
-                >
+                <a href="#" className="text-gray-400 hover:text-white text-sm">
                   Documentation
                 </a>
               </li>

@@ -27,6 +27,9 @@ import {
   Xmark,
 } from "iconoir-react";
 
+import Image from "next/image";
+import Link from "next/link";
+
 const LINKS = [
   {
     icon: ProfileCircle,
@@ -127,15 +130,31 @@ export default function ComplexNavbar() {
   return (
     <Navbar className="mx-auto w-full max-w-screen-2xl">
       <div className="flex items-center">
-        <img src="/images/logo.png" alt="logo" className="w-12" />
-        <Typography
-          as="a"
-          href="#"
-          type="h6"
-          className="ml-2 mr-2 block py-1 font-semibold text-blue-600 "
-        >
-          Grupo Famet S.A.C.
-        </Typography>
+        <Link href={"/"} passHref className="flex items-center">
+          <Image src="/images/logo.png" alt="logo" width={40} height={40} />
+          <Typography
+            as="a"
+            type="small"
+            className=" mr-1 block pt-1 font-semibold text-orange-500 "
+          >
+            Grupo
+          </Typography>
+          <Typography
+            as="a"
+            type="h6"
+            className=" mr-1 block  font-semibold text-blue-700 "
+          >
+            Famet
+          </Typography>
+          <Typography
+            as="a"
+            type="small"
+            className=" mr-2 block pt-1.5 font-semibold text-blue-700 "
+          >
+            S.A.C.
+          </Typography>
+        </Link>
+
         <hr className="mx-1 hidden h-5 w-px border-l border-t-0 border-secondary-dark lg:block" />
         <div className="hidden lg:block">
           <List className="mt-4 flex flex-col gap-1 lg:mt-0 lg:flex-row lg:items-center">
