@@ -5,12 +5,10 @@ import {
   Typography,
   Collapse,
   Navbar,
-  Card,
   List,
   Avatar,
   Menu,
   Tooltip,
-  Accordion,
 } from "@material-tailwind/react";
 import {
   Archive,
@@ -20,15 +18,12 @@ import {
   MultiplePages,
   NavArrowDown,
   ProfileCircle,
-  Rocket,
   SelectFace3d,
   Settings,
   UserCircle,
   Xmark,
 } from "iconoir-react";
-
 import Image from "next/image";
-import Link from "next/link";
 
 const LINKS = [
   {
@@ -130,30 +125,31 @@ export default function ComplexNavbar() {
   return (
     <Navbar className="mx-auto w-full max-w-screen-2xl">
       <div className="flex items-center">
-        <Link href={"/"} passHref className="flex items-center">
-          <Image src="/images/logo.png" alt="logo" width={40} height={40} />
-          <Typography
-            as="a"
-            type="small"
-            className=" mr-1 block pt-1 font-semibold text-orange-500 "
-          >
-            Grupo
-          </Typography>
-          <Typography
-            as="a"
-            type="h6"
-            className=" mr-1 block  font-semibold text-blue-700 "
-          >
-            Famet
-          </Typography>
-          <Typography
-            as="a"
-            type="small"
-            className=" mr-2 block pt-1.5 font-semibold text-blue-700 "
-          >
-            S.A.C.
-          </Typography>
-        </Link>
+        <Image src="/images/logo.png" alt="logo" width={40} height={40} />
+        <Typography
+          as="a"
+          href="#"
+          type="small"
+          className="mr-1 block pt-1 font-semibold text-orange-500"
+        >
+          Grupo
+        </Typography>
+        <Typography
+          as="a"
+          href="#"
+          type="h6"
+          className="mr-1 block font-semibold text-blue-700"
+        >
+          Famet
+        </Typography>
+        <Typography
+          as="a"
+          href="#"
+          type="small"
+          className="mr-2 block pt-1.5 font-semibold text-blue-700"
+        >
+          S.A.C.
+        </Typography>
 
         <hr className="mx-1 hidden h-5 w-px border-l border-t-0 border-secondary-dark lg:block" />
         <div className="hidden lg:block">
@@ -170,47 +166,27 @@ export default function ComplexNavbar() {
                   </List.ItemEnd>
                 </List.Item>
               </Tooltip.Trigger>
-              <Tooltip.Content className="grid max-w-lg grid-cols-5 gap-1 rounded-lg border border-surface bg-background p-1 shadow-xl shadow-surface/5 dark:border-surface dark:bg-background">
-                <Card
-                  color="primary"
-                  className="col-span-2 grid place-items-center rounded-[5px] px-8 py-4 text-primary-foreground shadow-none"
-                >
-                  <div>
-                    <Rocket className="mx-auto h-12 w-12" />
-                    <Typography
-                      type="h6"
-                      className="mt-5 text-center leading-snug"
-                    >
-                      Material Tailwind PRO
-                    </Typography>
-                  </div>
-                </Card>
-                <ul className="col-span-3 !m-0">
-                  <MenuItem
-                    title="@material-tailwind/html"
-                    description="Learn how to use @material-tailwind/html, packed with rich components and widgets."
-                  />
-                  <MenuItem
-                    title="@material-tailwind/react"
-                    description="Learn how to use @material-tailwind/react, packed with rich components for React."
-                  />
-                  <MenuItem
-                    title="Material Tailwind PRO"
-                    description="A complete set of UI Elements for building faster websites in less time."
-                  />
-                </ul>
-                <Tooltip.Arrow />
+              <Tooltip.Content>
+                <MenuItem
+                  title="@material-tailwind/html"
+                  description="Learn how to use @material-tailwind/html."
+                />
+                <MenuItem
+                  title="@material-tailwind/react"
+                  description="Learn how to use @material-tailwind/react."
+                />
+                <MenuItem
+                  title="Material Tailwind PRO"
+                  description="A complete set of UI Elements."
+                />
               </Tooltip.Content>
             </Tooltip>
             <NavList />
           </List>
         </div>
         <IconButton
-          size="sm"
-          variant="ghost"
-          color="secondary"
           onClick={() => setOpenNav(!openNav)}
-          className="ml-auto mr-2 grid lg:hidden"
+          className="ml-auto mr-2 lg:hidden"
         >
           {openNav ? (
             <Xmark className="h-4 w-4" />
@@ -221,35 +197,6 @@ export default function ComplexNavbar() {
         <ProfileMenu />
       </div>
       <Collapse open={openNav}>
-        <Accordion>
-          <Accordion.Item value="react" className="mt-2 border-none">
-            <Accordion.Trigger className="p-0">
-              <List.Item className="w-full">
-                <List.ItemStart className="me-1.5">
-                  <MultiplePages className="h-4 w-4" />
-                </List.ItemStart>
-                <Typography type="small">Pages</Typography>
-                <List.ItemEnd className="ps-1">
-                  <NavArrowDown className="h-3.5 w-3.5 group-data-[open=true]:rotate-180" />
-                </List.ItemEnd>
-              </List.Item>
-            </Accordion.Trigger>
-            <Accordion.Content>
-              <MenuItem
-                title="@material-tailwind/html"
-                description="Learn how to use @material-tailwind/html, packed with rich components and widgets."
-              />
-              <MenuItem
-                title="@material-tailwind/react"
-                description="Learn how to use @material-tailwind/react, packed with rich components for React."
-              />
-              <MenuItem
-                title="Material Tailwind PRO"
-                description="A complete set of UI Elements for building faster websites in less time."
-              />
-            </Accordion.Content>
-          </Accordion.Item>
-        </Accordion>
         <NavList />
       </Collapse>
     </Navbar>

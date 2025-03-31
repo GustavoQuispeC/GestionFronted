@@ -1,5 +1,5 @@
-import { ComplexNavbar, Footer, HeroWithCarousel } from "@/components";
-
+'use client";';
+import { ComplexNavbar, Footer, HeroWithCarousel, Products } from "@/components";
 import React from "react";
 
 const page = () => {
@@ -7,7 +7,8 @@ const page = () => {
     <>
       <ComplexNavbar />
       <HeroWithCarousel />
-      <h1>Productos destacados</h1>
+      <Products />
+
       <Footer />
     </>
   );
