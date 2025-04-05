@@ -1,204 +1,91 @@
-"use client";
-import * as React from "react";
-import {
-  IconButton,
-  Typography,
-  Collapse,
-  Navbar,
-  List,
-  Avatar,
-  Menu,
-  Tooltip,
-} from "@material-tailwind/react";
-import {
-  Archive,
-  HeadsetHelp,
-  LogOut,
-  Menu as MenuIcon,
-  MultiplePages,
-  NavArrowDown,
-  ProfileCircle,
-  SelectFace3d,
-  Settings,
-  UserCircle,
-  Xmark,
-} from "iconoir-react";
-import Image from "next/image";
 
-const LINKS = [
-  {
-    icon: ProfileCircle,
-    title: "Account",
-    href: "#",
-  },
-  {
-    icon: SelectFace3d,
-    title: "Blocks",
-    href: "#",
-  },
-  {
-    icon: Archive,
-    title: "Docs",
-    href: "#",
-  },
-];
+'use client'
+import React, { useState } from "react";
 
-function NavList() {
-  return (
-    <>
-      {LINKS.map(({ icon: Icon, title, href }) => (
-        <List.Item key={title} as="a" href={href}>
-          <List.ItemStart className="mr-1.5">
-            <Icon className="h-4 w-4" />
-          </List.ItemStart>
-          <Typography type="small">{title}</Typography>
-        </List.Item>
-      ))}
-    </>
-  );
-}
 
-function ProfileMenu() {
-  return (
-    <Menu>
-      <Menu.Trigger
-        as={Avatar}
-        src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/ct-assets/team-4.jpg"
-        alt="profile-picture"
-        size="sm"
-        className="border border-primary p-0.5 lg:ml-auto"
-      />
-      <Menu.Content>
-        <Menu.Item>
-          <UserCircle className="mr-2 h-[18px] w-[18px]" /> My Profile
-        </Menu.Item>
-        <Menu.Item>
-          <Settings className="mr-2 h-[18px] w-[18px]" /> Edit Profile
-        </Menu.Item>
-        <Menu.Item>
-          <HeadsetHelp className="mr-2 h-[18px] w-[18px]" /> Support
-        </Menu.Item>
-        <hr className="!my-1 -mx-1 border-surface" />
-        <Menu.Item className="text-error hover:bg-error/10 hover:text-error focus:bg-error/10 focus:text-error">
-          <LogOut className="mr-2 h-[18px] w-[18px]" />
-          Logout
-        </Menu.Item>
-      </Menu.Content>
-    </Menu>
-  );
-}
-
-// eslint-disable-next-line react/display-name
-const MenuItem = React.forwardRef<
-  typeof Menu.Item,
-  {
-    title: string;
-    description: string;
-  }
->(({ title, description, ...rest }, ref) => {
-  return (
-    <Menu.Item
-      ref={ref as React.Ref<HTMLDivElement>}
-      {...rest}
-      className="flex-col items-start"
-    >
-      <Typography color="default" className="font-semibold">
-        {title}
-      </Typography>
-      <Typography type="small" className="text-foreground">
-        {description}
-      </Typography>
-    </Menu.Item>
-  );
-});
-
-export default function ComplexNavbar() {
-  const [openNav, setOpenNav] = React.useState(false);
-
-  React.useEffect(() => {
-    window.addEventListener(
-      "resize",
-      () => window.innerWidth >= 960 && setOpenNav(false)
-    );
-  }, []);
+const ComplexNavbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <Navbar className="mx-auto w-full max-w-screen-2xl">
-      <div className="flex items-center">
-        <Image src="/images/logo.png" alt="logo" width={40} height={40} />
-        <Typography
-          as="a"
-          href="#"
-          type="small"
-          className="mr-1 block pt-1 font-semibold text-orange-500"
+    <header className="flex border-b border-gray-300 py-3 px-4 sm:px-10 bg-white min-h-[65px] tracking-wide relative z-50">
+      <div className="flex flex-wrap items-center gap-4 max-w-screen-xl mx-auto w-full">
+        <a href="#" className="max-sm:hidden">
+          <img
+            src="/images/LogoFamet.png"
+            alt="logo"
+            className="w-[134px]"
+          />
+        </a>
+        <a href="#" className="hidden max-sm:block">
+          <img
+            src="/images/LogoFamet.png"
+            alt="logo"
+            className="w-32"
+          />
+        </a>
+
+        {/* Menu */}
+        <div
+          id="collapseMenu"
+          className={`${
+            isMenuOpen ? "block" : "max-lg:hidden"
+          } max-lg:w-full max-lg:fixed max-lg:before:fixed max-lg:before:bg-black max-lg:before:opacity-50 max-lg:before:inset-0 max-lg:before:z-50 lg:!block`}
         >
-          Grupo
-        </Typography>
-        <Typography
-          as="a"
-          href="#"
-          type="h6"
-          className="mr-1 block font-semibold text-blue-700"
-        >
-          Famet
-        </Typography>
-        <Typography
-          as="a"
-          href="#"
-          type="small"
-          className="mr-2 block pt-1.5 font-semibold text-blue-700"
-        >
-          S.A.C.
-        </Typography>
+          <button
+            id="toggleClose"
+            onClick={() => setIsMenuOpen(false)}
+            className="lg:hidden fixed top-2 right-4 z-[100] rounded-full bg-white w-9 h-9 flex items-center justify-center border"
+          >
+            ✕
+          </button>
 
-        <hr className="mx-1 hidden h-5 w-px border-l border-t-0 border-secondary-dark lg:block" />
-        <div className="hidden lg:block">
-          <List className="mt-4 flex flex-col gap-1 lg:mt-0 lg:flex-row lg:items-center">
-            <Tooltip placement="bottom" interactive>
-              <Tooltip.Trigger>
-                <List.Item>
-                  <List.ItemStart className="me-1.5">
-                    <MultiplePages className="h-4 w-4" />
-                  </List.ItemStart>
-                  <Typography type="small">Pages</Typography>
-                  <List.ItemEnd className="ps-0.5">
-                    <NavArrowDown className="h-3.5 w-3.5 group-data-[open=true]:rotate-180" />
-                  </List.ItemEnd>
-                </List.Item>
-              </Tooltip.Trigger>
-              <Tooltip.Content>
-                <MenuItem
-                  title="@material-tailwind/html"
-                  description="Learn how to use @material-tailwind/html."
+          <ul className="lg:flex lg:ml-14 lg:gap-x-5 max-lg:space-y-3 max-lg:fixed max-lg:bg-white max-lg:w-1/2 max-lg:min-w-[300px] max-lg:top-0 max-lg:left-0 max-lg:p-6 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto z-50">
+            <li className="mb-6 hidden max-lg:block">
+              <a href="#">
+                <img
+                  src="https://readymadeui.com/readymadeui.svg"
+                  alt="logo"
+                  className="w-36"
                 />
-                <MenuItem
-                  title="@material-tailwind/react"
-                  description="Learn how to use @material-tailwind/react."
-                />
-                <MenuItem
-                  title="Material Tailwind PRO"
-                  description="A complete set of UI Elements."
-                />
-              </Tooltip.Content>
-            </Tooltip>
-            <NavList />
-          </List>
+              </a>
+            </li>
+            {["Home", "Team", "Feature", "Blog", "About"].map((item) => (
+              <li key={item} className="max-lg:border-b max-lg:py-3 px-3">
+                <a
+                  href="#"
+                  className={`font-medium block text-[15px] ${
+                    item === "Home" ? "text-blue-700" : "text-slate-900"
+                  } lg:hover:text-blue-700`}
+                >
+                  {item}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
-        <IconButton
-          onClick={() => setOpenNav(!openNav)}
-          className="ml-auto mr-2 lg:hidden"
-        >
-          {openNav ? (
-            <Xmark className="h-4 w-4" />
-          ) : (
-            <MenuIcon className="h-4 w-4" />
-          )}
-        </IconButton>
-        <ProfileMenu />
+
+        {/* Search & Toggle */}
+        <div className="flex gap-4 ml-auto">
+          <div className="flex max-w-xs w-full bg-gray-100 px-4 py-2.5 outline outline-transparent border focus-within:border-slate-900 focus-within:bg-transparent transition-all">
+            <input
+              type="text"
+              placeholder="Search something..."
+              className="w-full text-sm bg-transparent outline-none pr-2"
+            />
+          </div>
+
+          {/* Botón de menú */}
+          <button
+            id="toggleOpen"
+            className="lg:hidden"
+            onClick={() => setIsMenuOpen(true)}
+          >
+            ☰
+          </button>
+        </div>
       </div>
-      <Collapse open={openNav}>
-        <NavList />
-      </Collapse>
-    </Navbar>
+    </header>
   );
-}
+};
+
+export default ComplexNavbar;

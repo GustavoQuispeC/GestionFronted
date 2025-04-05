@@ -10,10 +10,10 @@ export default function Footer() {
           <div className="lg:flex lg:items-center">
             <a href="/" aria-label="Inicio">
               <Image
-                src="/images/logo_principal.png"
+                src="/images/LogoFamet.png"
                 alt="Logo Principal"
-                width={200}
-                height={150}
+                width={350}
+                height={100}
                 className="object-cover mb-4 lg:mb-0"
                 priority
               />
