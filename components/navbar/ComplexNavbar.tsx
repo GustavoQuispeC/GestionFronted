@@ -1,27 +1,18 @@
-
-'use client'
+"use client";
+import { Button } from "@material-tailwind/react";
 import React, { useState } from "react";
-
 
 const ComplexNavbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="flex border-b border-gray-300 py-3 px-4 sm:px-10 bg-white min-h-[65px] tracking-wide relative z-50">
+    <header className="flex border-b border-gray-300 py-3 px-4 sm:px-10 bg-slate-300 min-h-[65px] tracking-wide relative z-50">
       <div className="flex flex-wrap items-center gap-4 max-w-screen-xl mx-auto w-full">
         <a href="#" className="max-sm:hidden">
-          <img
-            src="/images/LogoFamet.png"
-            alt="logo"
-            className="w-[134px]"
-          />
+          <img src="/images/LogoFamet.png" alt="logo" className="w-52 h-12" />
         </a>
         <a href="#" className="hidden max-sm:block">
-          <img
-            src="/images/LogoFamet.png"
-            alt="logo"
-            className="w-32"
-          />
+          <img src="/images/LogoFamet2.png" alt="logo" className="w-20" />
         </a>
 
         {/* Menu */}
@@ -53,7 +44,7 @@ const ComplexNavbar = () => {
               <li key={item} className="max-lg:border-b max-lg:py-3 px-3">
                 <a
                   href="#"
-                  className={`font-medium block text-[15px] ${
+                  className={`font-semibold block text-[15px] ${
                     item === "Home" ? "text-blue-700" : "text-slate-900"
                   } lg:hover:text-blue-700`}
                 >
@@ -66,10 +57,10 @@ const ComplexNavbar = () => {
 
         {/* Search & Toggle */}
         <div className="flex gap-4 ml-auto">
-          <div className="flex max-w-xs w-full bg-gray-100 px-4 py-2.5 outline outline-transparent border focus-within:border-slate-900 focus-within:bg-transparent transition-all">
+          <div className="flex max-w-xs w-full bg-gray-100 px-4 py-2.5 outline outline-transparent border rounded-full focus-within:border-slate-900 focus-within:bg-transparent transition-all">
             <input
               type="text"
-              placeholder="Search something..."
+              placeholder="Buscar..."
               className="w-full text-sm bg-transparent outline-none pr-2"
             />
           </div>
@@ -82,6 +73,10 @@ const ComplexNavbar = () => {
           >
             ☰
           </button>
+        </div>
+        <div className="flex gap-4">
+        <Button color="info">Iniciar sesión</Button>
+
         </div>
       </div>
     </header>
