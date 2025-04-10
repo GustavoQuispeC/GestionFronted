@@ -1,52 +1,64 @@
 "use client";
+import { MagnifyingGlassIcon } from "@heroicons/react/16/solid";
 import { Button } from "@material-tailwind/react";
 import React, { useState } from "react";
 
 const ComplexNavbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showSearchInput, setShowSearchInput] = useState(false);
 
   return (
-    <header className="flex border-b border-gray-300 py-3 px-4 sm:px-10 bg-slate-300 min-h-[65px] tracking-wide relative z-50">
-      <div className="flex flex-wrap items-center gap-4 max-w-screen-xl mx-auto w-full">
-        <a href="#" className="max-sm:hidden">
-          <img src="/images/LogoFamet.png" alt="logo" className="w-52 h-12" />
-        </a>
-        <a href="#" className="hidden max-sm:block">
-          <img src="/images/LogoFamet2.png" alt="logo" className="w-20" />
-        </a>
+    <header className="flex border-b border-blue-950 px-4 sm:px-10 bg-blue-950 h-[60px] tracking-wide relative z-50 shadow-md">
+      <div className="flex items-center justify-between w-full max-w-screen-xl mx-auto gap-4">
+        {/* Logos */}
+        <div className="flex items-center mb-3.5">
+          <a href="#" className="hidden sm:block">
+            <img
+              src="/images/LogoFamet.png"
+              alt="logo"
+              className="w-72 h-16 object-contain"
+            />
+          </a>
+          <a href="#" className="sm:hidden">
+            <img
+              src="/images/LogoFamet2.png"
+              alt="logo"
+              className="w-28 h-14 object-contain"
+            />
+          </a>
+        </div>
 
         {/* Menu */}
         <div
           id="collapseMenu"
           className={`${
-            isMenuOpen ? "block" : "max-lg:hidden"
-          } max-lg:w-full max-lg:fixed max-lg:before:fixed max-lg:before:bg-black max-lg:before:opacity-50 max-lg:before:inset-0 max-lg:before:z-50 lg:!block`}
+            isMenuOpen ? "translate-x-0" : "-translate-x-full"
+          } transition-transform duration-300 ease-in-out max-lg:fixed max-lg:bg-white max-lg:w-1/3 max-lg:min-w-[250px] max-lg:top-0 max-lg:left-0 max-lg:p-4 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto z-50 lg:!block lg:static lg:translate-x-0`}
         >
           <button
-            id="toggleClose"
             onClick={() => setIsMenuOpen(false)}
             className="lg:hidden fixed top-2 right-4 z-[100] rounded-full bg-white w-9 h-9 flex items-center justify-center border"
           >
             ✕
           </button>
 
-          <ul className="lg:flex lg:ml-14 lg:gap-x-5 max-lg:space-y-3 max-lg:fixed max-lg:bg-white max-lg:w-1/2 max-lg:min-w-[300px] max-lg:top-0 max-lg:left-0 max-lg:p-6 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto z-50">
-            <li className="mb-6 hidden max-lg:block">
+          <ul className="lg:flex lg:gap-x-5">
+            <li className="mb-4 hidden max-lg:block">
               <a href="#">
                 <img
-                  src="https://readymadeui.com/readymadeui.svg"
+                  src="/images/LogoFamet2.png"
                   alt="logo"
-                  className="w-36"
+                  className="w-24 h-10 object-contain"
                 />
               </a>
             </li>
             {["Home", "Team", "Feature", "Blog", "About"].map((item) => (
-              <li key={item} className="max-lg:border-b max-lg:py-3 px-3">
+              <li key={item} className="max-lg:border-b max-lg:py-1">
                 <a
                   href="#"
                   className={`font-semibold block text-[15px] ${
-                    item === "Home" ? "text-blue-700" : "text-slate-900"
-                  } lg:hover:text-blue-700`}
+                    item === "Home" ? "text-blue-500" : "text-gray-400"
+                  } lg:hover:text-blue-400 transition-colors`}
                 >
                   {item}
                 </a>
@@ -55,28 +67,49 @@ const ComplexNavbar = () => {
           </ul>
         </div>
 
-        {/* Search & Toggle */}
-        <div className="flex gap-4 ml-auto">
-          <div className="flex max-w-xs w-full bg-gray-100 px-4 py-2.5 outline outline-transparent border rounded-full focus-within:border-slate-900 focus-within:bg-transparent transition-all">
+        {/* Buscador y acciones */}
+        <div className="flex items-center gap-3 ml-auto">
+          {/* Icono de búsqueda y campo condicional */}
+          {showSearchInput ? (
+            <div className="flex items-center bg-gray-100 px-3 py-1.5 rounded-full border focus-within:border-slate-900 transition-all">
+              <MagnifyingGlassIcon className="h-4 w-4 text-gray-500 mr-2" />
+              <input
+                type="text"
+                placeholder="Buscar..."
+                className="text-sm bg-transparent outline-none w-full"
+                autoFocus
+                onBlur={() => setShowSearchInput(false)}
+              />
+            </div>
+          ) : (
+            <button
+              className="text-white block sm:hidden"
+              onClick={() => setShowSearchInput(true)}
+            >
+              <MagnifyingGlassIcon className="h-5 w-5" />
+            </button>
+          )}
+
+          {/* Mostrar siempre en pantallas grandes */}
+          <div className="hidden sm:flex items-center bg-gray-100 px-3 py-1.5 rounded-full border focus-within:border-slate-900 transition-all">
+            <MagnifyingGlassIcon className="h-4 w-4 text-gray-500 mr-2" />
             <input
               type="text"
               placeholder="Buscar..."
-              className="w-full text-sm bg-transparent outline-none pr-2"
+              className="text-sm bg-transparent outline-none w-full"
             />
           </div>
+          <Button className="bg-blue-500 py-1.5 px-4 text-sm">
+            Iniciar sesión
+          </Button>
 
-          {/* Botón de menú */}
+          {/* Botón menú responsive */}
           <button
-            id="toggleOpen"
-            className="lg:hidden"
+            className="lg:hidden text-white text-2xl"
             onClick={() => setIsMenuOpen(true)}
           >
             ☰
           </button>
-        </div>
-        <div className="flex gap-4">
-        <Button color="info">Iniciar sesión</Button>
-
         </div>
       </div>
     </header>
