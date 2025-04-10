@@ -89,20 +89,26 @@ import { useRouter } from "next/navigation";
 const products = [
   {
     id: 1,
-    title: "Zapatillas deportivas",
-    image: "/images/producto1.jpg",
+    title: "Herramientas",
+    image: "/images/herramientas.png",
     link: "/producto/1",
   },
   {
     id: 2,
-    title: "Mochila de viaje",
-    image: "/images/producto2.jpg",
+    title: "Herramientas de construcción",
+    image: "/images/herramientas2.png",
     link: "/producto/2",
   },
   {
     id: 3,
-    title: "Auriculares inalámbricos",
-    image: "/images/producto3.jpg",
+    title: "Herramientas de jardinería",
+    image: "/images/herramientas3.png",
+    link: "/producto/3",
+  },
+  {
+    id: 4,
+    title: "cemento",
+    image: "/images/cemento.png",
     link: "/producto/3",
   },
 ];
@@ -111,7 +117,7 @@ const CarouselDemo = () => {
   const [current, setCurrent] = useState(0);
   const router = useRouter();
 
-  // Cambio automático cada 5 segundos
+  // Cambio automático cada 8 segundos
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % products.length);
