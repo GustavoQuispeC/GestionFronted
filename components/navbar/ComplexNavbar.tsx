@@ -1,6 +1,6 @@
 "use client";
 import { MagnifyingGlassIcon } from "@heroicons/react/16/solid";
-import { Button } from "@material-tailwind/react";
+import Link from "next/link";
 import React, { useState } from "react";
 
 const ComplexNavbar = () => {
@@ -99,9 +99,11 @@ const ComplexNavbar = () => {
               className="text-sm bg-transparent outline-none w-full"
             />
           </div>
-          <Button className="bg-blue-500 py-1.5 px-4 text-sm">
-            Iniciar sesión
-          </Button>
+          <Link href="/login">
+            <div className="text-white hover:text-black font-bold bg-blue-500 rounded-lg py-1 px-3 hover:scale-110 hover:bg-blue-400">
+              Iniciar Sesión
+            </div>
+          </Link>
 
           {/* Botón menú responsive */}
           <button

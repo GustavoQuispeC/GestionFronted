@@ -3,3 +3,4 @@ export { default as ComplexNavbar } from "./navbar/ComplexNavbar";
 export { default as Footer } from "./footer/Footer";
 export {default as Products} from "./products/products";
 export { default as CategoriasGrid } from "./categorias/CategoriasGrid";
+export { default as LoginForm } from "./login/Login";
