@@ -6,25 +6,29 @@ const products = [
   {
     id: 1,
     title: "Herramientas",
-    image: "/images/herramientas.png",
+    image:
+      "https://firebasestorage.googleapis.com/v0/b/grupofamet-456604.firebasestorage.app/o/imagenes-ui%2Fcarousel%2Fherramientas.png?alt=media&token=ea663d4e-c3a6-4b5a-805b-6e4981bde4cb",
     link: "/producto/1",
   },
   {
     id: 2,
     title: "Herramientas de construcción",
-    image: "/images/herramientas2.png",
+    image:
+      "https://firebasestorage.googleapis.com/v0/b/grupofamet-456604.firebasestorage.app/o/imagenes-ui%2Fcarousel%2Fherramientas2.png?alt=media&token=db66dc31-b025-4e1a-9249-e2c6e5dcac68",
     link: "/producto/2",
   },
   {
     id: 3,
     title: "Herramientas de jardinería",
-    image: "/images/herramientas3.png",
+    image:
+      "https://firebasestorage.googleapis.com/v0/b/grupofamet-456604.firebasestorage.app/o/imagenes-ui%2Fcarousel%2Fherramientas3.png?alt=media&token=01b79f68-f8e4-4d5b-a730-401e71a79a5a",
     link: "/producto/3",
   },
   {
     id: 4,
     title: "cemento",
-    image: "/images/cemento.png",
+    image:
+      "https://firebasestorage.googleapis.com/v0/b/grupofamet-456604.firebasestorage.app/o/imagenes-ui%2Fcarousel%2Fcemento.png?alt=media&token=1655f480-6d2c-460f-aefa-5d15f60d34b0",
     link: "/producto/3",
   },
 ];
