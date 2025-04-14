@@ -7,32 +7,31 @@ const products = [
     id: 1,
     title: "Herramientas",
     image:
-      "https://firebasestorage.googleapis.com/v0/b/grupofamet-456604.firebasestorage.app/o/imagenes-ui%2Fcarousel%2Fherramientas.png?alt=media&token=ea663d4e-c3a6-4b5a-805b-6e4981bde4cb",
+      "https://firebasestorage.googleapis.com/v0/b/grupofamet-456604.firebasestorage.app/o/imagenes-ui%2Fcarousel%2Fcemento.png?alt=media&token=b5f84e75-8c30-429e-bcd3-a41e807aafe6",
     link: "/producto/1",
   },
   {
     id: 2,
     title: "Herramientas de construcción",
     image:
-      "https://firebasestorage.googleapis.com/v0/b/grupofamet-456604.firebasestorage.app/o/imagenes-ui%2Fcarousel%2Fherramientas2.png?alt=media&token=db66dc31-b025-4e1a-9249-e2c6e5dcac68",
+      "https://firebasestorage.googleapis.com/v0/b/grupofamet-456604.firebasestorage.app/o/imagenes-ui%2Fcarousel%2Fherrramientas2.png?alt=media&token=5bb9609c-e3e1-4454-a609-e4916cc72653",
     link: "/producto/2",
   },
   {
     id: 3,
     title: "Herramientas de jardinería",
     image:
-      "https://firebasestorage.googleapis.com/v0/b/grupofamet-456604.firebasestorage.app/o/imagenes-ui%2Fcarousel%2Fherramientas3.png?alt=media&token=01b79f68-f8e4-4d5b-a730-401e71a79a5a",
+      "https://firebasestorage.googleapis.com/v0/b/grupofamet-456604.firebasestorage.app/o/imagenes-ui%2Fcarousel%2Fherramientas3.png?alt=media&token=1413896b-19e2-4e5b-a579-eaedb77091dd",
     link: "/producto/3",
   },
   {
     id: 4,
     title: "cemento",
     image:
-      "https://firebasestorage.googleapis.com/v0/b/grupofamet-456604.firebasestorage.app/o/imagenes-ui%2Fcarousel%2Fcemento.png?alt=media&token=1655f480-6d2c-460f-aefa-5d15f60d34b0",
+      "https://firebasestorage.googleapis.com/v0/b/grupofamet-456604.firebasestorage.app/o/imagenes-ui%2Fcarousel%2Fcemento.png?alt=media&token=b5f84e75-8c30-429e-bcd3-a41e807aafe6",
     link: "/producto/3",
   },
 ];
-
 const CarouselDemo = () => {
   const [current, setCurrent] = useState(0);
   const router = useRouter();
@@ -56,7 +55,7 @@ const CarouselDemo = () => {
         {products.map((product) => (
           <div
             key={product.id}
-            className="min-w-full relative h-[600px] bg-black"
+            className="min-w-full relative h-[350px] bg-black"
           >
             <img
               src={product.image}

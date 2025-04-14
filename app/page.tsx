@@ -17,6 +17,8 @@ const page = () => {
         <CategoriasGrid />
 
         <Products />
+
+        {/* Icono de whatsapp */}
         <a
           href="https://wa.me/923095970"
           target="_blank"

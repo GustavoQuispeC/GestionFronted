@@ -3,7 +3,7 @@ import React from 'react'
 const products = () => {
   return (
     <div className="p-4 mx-auto lg:max-w-6xl md:max-w-4xl">
-      <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-6 sm:mb-12">Premium Threads</h2>
+      <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-6 sm:mb-12">Nuestros productos mas vendidos</h2>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
         <div className="bg-white flex flex-col rounded overflow-hidden shadow-md cursor-pointer hover:scale-[1.01] transition-all">

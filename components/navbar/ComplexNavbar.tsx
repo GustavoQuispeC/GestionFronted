@@ -8,7 +8,7 @@ const ComplexNavbar = () => {
   const [showSearchInput, setShowSearchInput] = useState(false);
 
   return (
-    <header className="flex border-b border-blue-950 px-4 sm:px-10 bg-blue-950 h-[60px] tracking-wide relative z-50 shadow-md">
+    <header className="sticky top-0 flex border-b border-blue-950 px-4 sm:px-10 bg-white h-[60px] tracking-wide z-50 shadow-md">
       <div className="flex items-center justify-between w-full max-w-screen-xl mx-auto gap-4">
         {/* Logos */}
         <div className="flex items-center mb-3.5">
@@ -52,15 +52,21 @@ const ComplexNavbar = () => {
                 />
               </a>
             </li>
-            {["Home", "Team", "Feature", "Blog", "About"].map((item) => (
-              <li key={item} className="max-lg:border-b max-lg:py-1">
+            {[
+              { label: "Home", url: "#" },
+              { label: "Team", url: "#" },
+              { label: "Feature", url: "#" },
+              { label: "Blog", url: "#" },
+              { label: "Contáctenos", url: "/contact" },
+            ].map((item) => (
+              <li key={item.label} className="max-lg:border-b max-lg:py-1">
                 <a
-                  href="#"
+                  href={item.url}
                   className={`font-semibold block text-[15px] ${
-                    item === "Home" ? "text-blue-500" : "text-gray-400"
+                    item.label === "Home" ? "text-blue-700" : "text-slate-800"
                   } lg:hover:text-blue-400 transition-colors`}
                 >
-                  {item}
+                  {item.label}
                 </a>
               </li>
             ))}
@@ -100,7 +106,7 @@ const ComplexNavbar = () => {
             />
           </div>
           <Link href="/login">
-            <div className="text-white hover:text-black font-bold bg-blue-500 rounded-lg py-1 px-3 hover:scale-110 hover:bg-blue-400">
+            <div className="text-white hover:text-gray-400 font-bold bg-blue-700 rounded-lg py-1 px-3 hover:bg-blue-800">
               Iniciar Sesión
             </div>
           </Link>

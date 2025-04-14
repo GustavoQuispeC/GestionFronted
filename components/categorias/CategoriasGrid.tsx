@@ -25,11 +25,7 @@ export const CategoriasGrid = () => {
           img: "/images/herramientas.jpg",
           label: "Herramientas",
         },
-        {
-          href: "/alumbrado",
-          img: "/images/alumbrado.jpg",
-          label: "Alumbrado",
-        },
+       
       ].map(({ href, img, label }) => (
         <a href={href} className="text-center" key={label}>
           <div className="group transition-transform duration-300 hover:scale-105">
