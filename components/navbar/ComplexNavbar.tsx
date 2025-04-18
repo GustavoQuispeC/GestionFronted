@@ -6,7 +6,7 @@ import React, { useState } from "react";
 const ComplexNavbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showSearchInput, setShowSearchInput] = useState(false);
-
+  //todo: cambiar el logo por el de la empresa
   return (
     <header className="sticky top-0 flex border-b border-blue-950 px-4 sm:px-10 bg-white h-[60px] tracking-wide z-50 shadow-md">
       <div className="flex items-center justify-between w-full max-w-screen-xl mx-auto gap-4">
