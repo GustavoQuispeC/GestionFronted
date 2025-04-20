@@ -6,12 +6,14 @@ import { useState } from "react";
 export default function RegisterEmpleyoee() {
   const [formData, setFormData] = useState({
     nombres: "",
-    apellidos: "",
+    apellidoPaterno: "",
+    apellidoMaterno: "",
     documento: "",
     tipoDocumento: "DNI",
     fechaNacimiento: "",
     genero: "",
     telefono: "",
+    telefonoEmergencia: "",
     email: "",
     direccion: "",
     cargo: "",
@@ -35,14 +37,15 @@ export default function RegisterEmpleyoee() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="max-w-2xl mx-auto p-6 bg-white shadow-md rounded-xl"
+      className="max-w-7xl mx-auto mt-10 p-6 bg-gray-50 shadow-lg rounded-xl"
     >
-      <h2 className="text-2xl font-semibold mb-6 text-center">
+      <h2 className="text-2xl font-semibold mb-6 text-left">
         Registro de Empleado
       </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
+      <div className="flex flex-wrap gap-4">
+        {/* Nombres */}
+        <div className="flex-1 min-w-[30%]">
           <label className="block font-semibold">Nombres</label>
           <Input
             type="text"
@@ -50,32 +53,45 @@ export default function RegisterEmpleyoee() {
             value={formData.nombres}
             onChange={handleChange}
             required
-            className="w-full border px-4 py-2 rounded-md"
+            className="w-full"
           />
         </div>
 
-        <div>
-          <label className="block font-semibold">Apellidos</label>
+        {/* Apellido Paterno */}
+        <div className="flex-1 min-w-[30%]">
+          <label className="block font-semibold">Apellido paterno</label>
           <Input
             type="text"
-            name="apellidos"
-            value={formData.apellidos}
+            name="apellidoPaterno"
+            value={formData.apellidoPaterno}
             onChange={handleChange}
             required
-            className="w-full border px-4 py-2 rounded-md"
+            className="w-full"
+          />
+        </div>
+        {/* Apellido Materno */}
+        <div className="flex-1 min-w-[30%]">
+          <label className="block font-semibold">Apellido materno</label>
+          <Input
+            type="text"
+            name="apellidoMaterno"
+            value={formData.apellidoMaterno}
+            onChange={handleChange}
+            required
+            className="w-full"
           />
         </div>
 
-        <div>
+        {/* Tipo de Documento */}
+        <div className="flex-1 min-w-[30%]">
           <label className="block font-medium">Tipo de Documento</label>
-
           <Select
             name="tipoDocumento"
             value={formData.tipoDocumento}
             onChange={handleChange}
           >
             <Select.Trigger
-              className="w-72"
+              className="w-full"
               placeholder="Seleccione documento"
             />
             <Select.List>
@@ -86,7 +102,8 @@ export default function RegisterEmpleyoee() {
           </Select>
         </div>
 
-        <div>
+        {/* Número de Documento */}
+        <div className="flex-1 min-w-[30%]">
           <label className="block font-medium">Número de Documento</label>
           <Input
             type="number"
@@ -95,26 +112,14 @@ export default function RegisterEmpleyoee() {
             value={formData.documento}
             onChange={handleChange}
             required
-            className="appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+            className="w-full appearance-none"
           />
         </div>
-        <div>
-          <label className="block font-medium">Fecha de Nacimiento</label>
-
-          <input
-            type="date"
-            name="fechaNacimiento"
-            value={formData.fechaNacimiento}
-            onChange={handleChange}
-            className="w-full px-4 py-1.5 border-[1.5px] border-gray-300 rounded-md ring-0 hover:ring-2 hover:ring-gray-300 hover:border-black focus:ring-2 focus:border-black focus:ring-gray-400 focus:outline-none transition"
-          />
-        </div>
-
-        <div>
+        {/* Género */}
+        <div className="flex-1 min-w-[30%]">
           <label className="block font-medium">Género</label>
-
           <Select name="genero" value={formData.genero} onChange={handleChange}>
-            <Select.Trigger className="w-72" placeholder="Seleccione género" />
+            <Select.Trigger className="w-full" placeholder="Seleccione" />
             <Select.List>
               <Select.Option value="masculino">Masculino</Select.Option>
               <Select.Option value="femenino">Femenino</Select.Option>
@@ -122,72 +127,97 @@ export default function RegisterEmpleyoee() {
           </Select>
         </div>
 
-        <div>
-          <label className="block font-medium">Teléfono</label>
-          <Input
-            type="numeric"
-            name="telefono"
-            value={formData.telefono}
+        {/* Fecha de Nacimiento */}
+        <div className="flex-1 min-w-[30%]">
+          <label className="block font-medium">Fecha de Nacimiento</label>
+          <input
+            type="date"
+            name="fechaNacimiento"
+            value={formData.fechaNacimiento}
             onChange={handleChange}
-            className="appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+            className="w-full px-4 py-2 border-[1.5px] border-gray-300 rounded-md ring-0 hover:ring-2 hover:ring-gray-300 hover:border-black focus:ring-2 focus:ring-gray-300 focus:outline-none focus:border-black transition"
           />
         </div>
-
-        <div>
+        {/* Fecha de Ingreso */}
+        <div className="flex-1 min-w-[30%]">
+          <label className="block font-medium">Fecha de Ingreso</label>
+          <input
+            type="date"
+            name="fechaIngreso"
+            value={formData.fechaIngreso}
+            onChange={handleChange}
+            className="w-full px-4 py-2 border-[1.5px] border-gray-300 rounded-md ring-0 hover:ring-2 hover:ring-gray-300 hover:border-black focus:ring-2 focus:ring-gray-300 focus:outline-none focus:border-black transition"
+          />
+        </div>
+        {/* Correo */}
+        <div className="flex-1 min-w-[30%]">
           <label className="block font-medium">Correo electrónico</label>
           <Input
             type="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+            className="w-full"
           />
         </div>
 
-        <div className="md:col-span-2">
+        {/* Teléfono */}
+        <div className="flex-1 min-w-[30%]">
+          <label className="block font-medium">Teléfono</label>
+          <Input
+            type="number"
+            name="telefono"
+            value={formData.telefono}
+            onChange={handleChange}
+            className="w-full"
+          />
+        </div>
+
+        {/* Teléfono emergencia */}
+        <div className="flex-1 min-w-[30%]">
+          <label className="block font-medium">Teléfono de emergencia</label>
+          <Input
+            type="number"
+            name="telefonoEmergencia"
+            value={formData.telefonoEmergencia}
+            onChange={handleChange}
+            className="w-full"
+          />
+        </div>
+
+        {/* Dirección */}
+        <div className="flex-1 min-w-[30%]">
           <label className="block font-medium">Dirección</label>
           <Input
             type="text"
             name="direccion"
             value={formData.direccion}
             onChange={handleChange}
-            className="appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+            className="w-full"
           />
         </div>
 
-        <div>
+        {/* Cargo */}
+        <div className="flex-1 min-w-[30%]">
           <label className="block font-medium">Cargo</label>
           <Input
             type="text"
             name="cargo"
             value={formData.cargo}
             onChange={handleChange}
-            className="appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+            className="w-full"
           />
         </div>
 
-        <div>
-          <label className="block font-medium">Fecha de Ingreso</label>
-
-          <input
-            type="date"
-            name="fechaIngreso"
-            value={formData.fechaIngreso}
-            onChange={handleChange}
-            className="w-full px-4 py-1.5 border-[1.5px] border-gray-300 rounded-md ring-0 hover:ring-2 hover:ring-gray-300 hover:border-black focus:ring-2 focus:border-black focus:ring-gray-400 focus:outline-none transition"
-          />
-        </div>
-
-        <div className="md:col-span-2">
+        {/* Tipo de Contrato */}
+        <div className="flex-1 min-w-[30%]">
           <label className="block font-medium">Tipo de Contrato</label>
-
           <Select
-            name="
-"
+            name="tipoContrato"
             value={formData.tipoContrato}
             onChange={handleChange}
           >
-            <Select.Trigger className="w-72" placeholder="Seleccione" />
+            <Select.Trigger className="w-full" placeholder="Seleccione" />
             <Select.List>
               <Select.Option value="Indeterminado">Indeterminado</Select.Option>
               <Select.Option value="PlazoFijo">Plazo fijo</Select.Option>
