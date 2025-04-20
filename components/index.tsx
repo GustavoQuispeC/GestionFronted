@@ -5,3 +5,4 @@ export { default as Products } from "./products/products";
 export { default as CategoriasGrid } from "./categorias/CategoriasGrid";
 export { default as LoginForm } from "./login/Login";
 export { default as ContactForm } from "./contact/Contact";
+export { default as RegisterFormEmpleado } from "./registerEmpleado/registerEmpleado";
